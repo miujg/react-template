@@ -1,13 +1,12 @@
 const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  // JavaScript 执行入口文件
+  mode: 'development',
   entry: path.resolve(__dirname, '../src/main.js'),
   output: {
-    // 把所有依赖的模块合并输出到一个 bundle.js 文件
     filename: 'bundle.js',
-    // 输出文件都放到 dist 目录下
     path: path.resolve(__dirname, '../src/dist'),
   },
   // 定义loader
@@ -16,10 +15,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
-          {
-            loader: "css-loader"
-          }
+          'style-loader', 'css-loader'
         ]
       }
     ]
@@ -31,7 +27,19 @@ module.exports = {
       css: path.resolve(__dirname, '../src/css')
     }
   },
-  devServer: {
 
-  }
+  devServer: {
+    hot: true,
+    inline: true,
+    contentBase: path.resolve(__dirname, '../src/dist'),
+    host: '127.0.0.1',
+    port: '8083',
+    historyApiFallback: true
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'my app',
+      template: path.resolve(__dirname, '../src/index.html'),
+    })
+  ]
 }
