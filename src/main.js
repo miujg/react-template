@@ -1,7 +1,3 @@
-// import 'css/main.scss'
-// import show from 'js/show.js'
-// show('Webpack11')
-
 import React from 'react'
 import ReactDOM from 'react-dom';
 
