@@ -13,14 +13,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        include: [
-          path.resolve(__dirname, '../src/')
-        ],
+        test: /\.(js|jsx)$/,
         exclude: [
           path.resolve(__dirname, '../node_modules')
         ],
-        use: ['babel-loader']
+        use: [
+          'babel-loader'
+        ]
       }
     ]
   },
