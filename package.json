@@ -4,9 +4,8 @@
   "description": "webpack student node",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --config ./build/webpack.config.js",
-    "dev": "webpack-dev-server --config ./build/webpack.config.js"
+    "build": "webpack --config ./build/webpack.product.js",
+    "dev": "webpack-dev-server --config ./build/webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -30,9 +29,11 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
+    "clean-webpack-plugin": "^2.0.2",
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.12.0",
-    "style-loader": "^0.23.1"
+    "style-loader": "^0.23.1",
+    "webpack-merge": "^4.2.1"
   }
 }
