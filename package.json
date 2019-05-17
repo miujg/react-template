@@ -4,8 +4,8 @@
   "description": "webpack student node",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config ./build/webpack.product.js",
-    "dev": "webpack-dev-server --config ./build/webpack.dev.js"
+    "build": "webpack --config ./config/webpack.product.js",
+    "dev": "webpack-dev-server --config ./config/webpack.dev.js"
   },
   "repository": {
     "type": "git",
