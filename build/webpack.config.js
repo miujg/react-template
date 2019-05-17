@@ -1,6 +1,8 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const devMode = process.env.NODE_ENV !== 'production'
+console.log(process.env.NODE_ENV)
 
 module.exports = {
   mode: 'development',
@@ -9,14 +11,31 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../src/dist'),
   },
+  // 启用source-map方便在浏览器调试代码
+  devtool: 'source-map',
   // 定义loader
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
-          'style-loader', 'css-loader'
+           {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: true,  // Hot Module Reloading 是否实时刷新样式
+            },
+           },'css-loader', 'sass-loader'
         ]
+      },
+      {
+        test: /\.js$/,
+        include: [
+          path.resolve(__dirname, '../src/')
+        ],
+        exclude: [
+          path.resolve(__dirname, '../node_modules')
+        ],
+        use: ['babel-loader']
       }
     ]
   },
@@ -37,9 +56,14 @@ module.exports = {
     historyApiFallback: true
   },
   plugins: [
+    // 生成html
     new HtmlWebpackPlugin({
-      title: 'my app',
-      template: path.resolve(__dirname, '../src/index.html'),
+      template: path.resolve(__dirname, '../src/index.html'), // 模板引用
+      filename: 'index.html',  // 输出文件名字
+    }),
+    new MiniCssExtractPlugin({
+      filename: devMode ? '[name].css' : '[name].[hash].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
     })
   ]
 }
