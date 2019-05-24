@@ -14,6 +14,9 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
+        include: [
+          path.resolve(__dirname, '../src')
+        ],
         exclude: [
           path.resolve(__dirname, '../node_modules')
         ],
@@ -25,10 +28,15 @@ module.exports = {
   },
 
   resolve: {
+    // 配置别名
     alias: {
       js: path.resolve(__dirname, '../src/js'),
       css: path.resolve(__dirname, '../src/css')
-    }
+    },
+    // 配置第三方包的位置
+    modules: [
+      path.resolve(__dirname, '../node_modules')
+    ]
   },
 
   plugins: [
