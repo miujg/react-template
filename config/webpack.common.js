@@ -45,6 +45,5 @@ module.exports = {
       template: path.resolve(__dirname, '../src/index.html'), // 模板引用
       filename: 'index.html',  // 输出文件名字
     }),
-    
   ]
 }
