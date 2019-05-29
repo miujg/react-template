@@ -5,7 +5,7 @@ const devMode = process.env.NODE_ENV !== 'production'
 const webpack = require('webpack')
 
 module.exports = {
-  entry: path.resolve(__dirname, '../src/main.js'),
+  entry: path.resolve(__dirname, '../src/app.js'),
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../src/dist'),
@@ -51,7 +51,9 @@ module.exports = {
     }),
     // 配置自动加载模块插件
     new webpack.ProvidePlugin({
-      // Component: ['react', 'Component']
+      React: 'react',
+      Component: ['react', 'Component'],
+      Fragment : ['react', 'Fragment'],
     })
   ]
 }

@@ -10,5 +10,7 @@
 2. 接入mock
 3. router
 4. redux
+5. postcss
+6. 自动后缀名
 
 

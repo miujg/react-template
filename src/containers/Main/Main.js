@@ -1,7 +1,10 @@
 /**
  Crate by jgmiu on 19/05/27.
 */
-import './Main.scss'
+import {User} from 'coms/index'
+
+import {Route, Switch, BrowserRouter as Router} from 'react-router-dom'
+
 export default class Main extends Component{
   constructor(props) {
     super(props)
@@ -13,7 +16,9 @@ export default class Main extends Component{
   render() {
     return(
       <div className={'Main'}>
-
+        <Switch>
+            <Route exact path={'/'} component={User} />
+        </Switch>
       </div>
     )
   }
