@@ -22,7 +22,27 @@ module.exports = {
           path.resolve(__dirname, '../node_modules')
         ],
         use: [
-          'babel-loader'
+          {
+            loader: 'babel-loader',
+            options: {
+              // 开启 babel缓存
+              cacheDirectory: true
+            }
+          }
+        ]
+      },
+      // 配置图片/文件loader
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: '[path][hash].[ext]',
+              // 单位为bytes
+              limit: '10000'
+            }
+          }
         ]
       }
     ]
@@ -31,16 +51,17 @@ module.exports = {
   resolve: {
     // 配置别名
     alias: {
-      js: path.resolve(__dirname, '../src/js'),
-      css: path.resolve(__dirname, '../src/css'),
       // 组件目录
       coms: path.resolve(__dirname, '../src/components'),
-      cons: path.resolve(__dirname, '../src/containers')
+      cons: path.resolve(__dirname, '../src/containers'),
+      imgs: path.resolve(__dirname, '../public/images')
     },
     // 配置第三方包的位置
     modules: [
       path.resolve(__dirname, '../node_modules')
-    ]
+    ],
+    // 后缀名省略
+    extensions: ['.js', '.json', '.*']
   },
 
   plugins: [
@@ -48,6 +69,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index.html'), // 模板引用
       filename: 'index.html',  // 输出文件名字
+      title: 'my app',
+      favicon: path.resolve(__dirname, '../public/images/favicon.ico')
     }),
     // 配置自动加载模块插件
     new webpack.ProvidePlugin({

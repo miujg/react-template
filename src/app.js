@@ -9,12 +9,6 @@ import {User} from 'coms/index'
 
 ReactDOM.render(
     (
-        // <Router>
-        //     <Switch>
-        //         <Route exact path={'/'} component={User} />
-        //     </Switch>
-        // </Router>
-        // <Main/>
         <Router>
             <Main></Main>
         </Router>
