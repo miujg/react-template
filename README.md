@@ -8,5 +8,7 @@
 ### 版本1.1功能（未开始）
 1. react-hot-loader实现局部刷新 
 2. 接入mock
-3. react目录定义
+3. router
+4. redux
+
 

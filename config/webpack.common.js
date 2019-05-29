@@ -2,6 +2,7 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
+const webpack = require('webpack')
 
 module.exports = {
   entry: path.resolve(__dirname, '../src/main.js'),
@@ -31,7 +32,10 @@ module.exports = {
     // 配置别名
     alias: {
       js: path.resolve(__dirname, '../src/js'),
-      css: path.resolve(__dirname, '../src/css')
+      css: path.resolve(__dirname, '../src/css'),
+      // 组件目录
+      coms: path.resolve(__dirname, '../src/components'),
+      cons: path.resolve(__dirname, '../src/containers')
     },
     // 配置第三方包的位置
     modules: [
@@ -42,8 +46,12 @@ module.exports = {
   plugins: [
     // 生成html
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../src/index.html'), // 模板引用
+      template: path.resolve(__dirname, '../public/index.html'), // 模板引用
       filename: 'index.html',  // 输出文件名字
     }),
+    // 配置自动加载模块插件
+    new webpack.ProvidePlugin({
+      // Component: ['react', 'Component']
+    })
   ]
 }
