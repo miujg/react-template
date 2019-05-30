@@ -13,7 +13,7 @@ export default class User extends Component{
     render() {
         return(
             <div className={'User'}>
-                user....
+                user....<span className={'icon-quill'}></span>
                 <img src={nbaimg} />
             </div>
         )

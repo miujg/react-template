@@ -5,7 +5,9 @@ const devMode = process.env.NODE_ENV !== 'production'
 const webpack = require('webpack')
 
 module.exports = {
-  entry: path.resolve(__dirname, '../src/app.js'),
+  entry: {
+    main: path.resolve(__dirname, '../src/app.js')
+  },
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../src/dist'),
@@ -44,6 +46,11 @@ module.exports = {
             }
           }
         ]
+      },
+      // 字体文件使用
+      {
+        test: /\.(eot|svg|ttf|woff)$/,
+        use: ['file-loader']
       }
     ]
   },
@@ -54,7 +61,8 @@ module.exports = {
       // 组件目录
       coms: path.resolve(__dirname, '../src/components'),
       cons: path.resolve(__dirname, '../src/containers'),
-      imgs: path.resolve(__dirname, '../public/images')
+      imgs: path.resolve(__dirname, '../public/images'),
+      css: path.resolve(__dirname, '../public/css')
     },
     // 配置第三方包的位置
     modules: [

@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import {Main} from 'cons/index.js'
 import {User} from 'coms/index'
+// 字体文件
+import 'css/font.scss'
 
 ReactDOM.render(
     (
