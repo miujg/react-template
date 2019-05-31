@@ -1,3 +1,4 @@
+
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -64,7 +65,8 @@ module.exports = {
       coms: path.resolve(__dirname, '../src/components'),
       cons: path.resolve(__dirname, '../src/containers'),
       imgs: path.resolve(__dirname, '../public/images'),
-      css: path.resolve(__dirname, '../public/css')
+      css: path.resolve(__dirname, '../public/css'),
+      'react-dom': '@hot-loader/react-dom'
     },
     // 配置第三方包的位置
     modules: [

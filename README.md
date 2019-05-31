@@ -6,11 +6,10 @@
 3. react引入（es6、babel配置）
 
 ### 版本1.1功能（未开始）
-1. react-hot-loader实现局部刷新 
+1. react-hot-loader实现局部刷新(自组件不用hot包装)
 2. 接入mock
-3. router
+3. router （done）
 4. redux
-5. postcss
-6. 自动后缀名
+5. postcss （done）
 
 

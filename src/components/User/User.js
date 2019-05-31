@@ -14,7 +14,7 @@ class User extends Component{
     render() {
         return(
             <div className={'User'}>
-                user..121211211<span className={'icon-quill'}></span>
+                user.11.1<span className={'icon-quill'}></span>
                 <img src={nbaimg} />
             </div>
         )

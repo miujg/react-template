@@ -3,7 +3,7 @@
 */
 import {User} from 'coms/index'
 import {Route, Switch, BrowserRouter as Router} from 'react-router-dom'
-import {hot} from 'react-hot-loader/root'
+import {hot} from 'react-hot-loader'
 
 class Main extends Component{
   constructor(props) {
@@ -28,4 +28,4 @@ class Main extends Component{
 Main.protoTypes = {}
 Main.defaultProps = {}
 
-export default hot(Main)
+export default hot(module)(Main)
