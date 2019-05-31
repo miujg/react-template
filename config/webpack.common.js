@@ -5,9 +5,11 @@ const devMode = process.env.NODE_ENV !== 'production'
 const webpack = require('webpack')
 
 module.exports = {
-  entry: {
-    main: path.resolve(__dirname, '../src/app.js')
-  },
+  entry: [
+    // 配置react局部刷新
+    'react-hot-loader/patch',
+    path.resolve(__dirname, '../src/app.js')
+  ],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../src/dist'),

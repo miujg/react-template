@@ -1,8 +1,9 @@
 /**
  Crate by jgmiu on 19/05/29.
 */
+import {hot} from 'react-hot-loader/root'
 import nbaimg from 'imgs/nba.jpg'
-export default class User extends Component{
+class User extends Component{
     constructor(props) {
         super(props)
     }
@@ -13,7 +14,7 @@ export default class User extends Component{
     render() {
         return(
             <div className={'User'}>
-                user....<span className={'icon-quill'}></span>
+                user..121211211<span className={'icon-quill'}></span>
                 <img src={nbaimg} />
             </div>
         )
@@ -22,3 +23,4 @@ export default class User extends Component{
 
 User.protoTypes = {}
 User.defaultProps = {}
+export default hot(User)
