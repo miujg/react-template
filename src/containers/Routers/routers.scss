@@ -1,0 +1,14 @@
+body{
+  position: relative;
+}
+
+#app{
+  margin: 0 auto;
+  @include con-media;
+  overflow: hidden;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+}

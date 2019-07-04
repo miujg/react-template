@@ -66,7 +66,11 @@ module.exports = {
       cons: path.resolve(__dirname, '../src/containers'),
       imgs: path.resolve(__dirname, '../public/images'),
       css: path.resolve(__dirname, '../public/css'),
-      'react-dom': '@hot-loader/react-dom'
+      action: path.resolve(__dirname, '../src/redux/action'),
+      reducer: path.resolve(__dirname, '../src/redux/reducer'),
+      scss: path.resolve(__dirname, '../src/scss'),
+      config: path.resolve(__dirname, '../config/config.js'),
+      tooles: path.resolve(__dirname, '../src/tooles')
     },
     // 配置第三方包的位置
     modules: [
@@ -89,6 +93,8 @@ module.exports = {
       React: 'react',
       Component: ['react', 'Component'],
       Fragment : ['react', 'Fragment'],
+      PropTypes: 'prop-types',
+      classnames: 'classnames'
     })
   ]
 }

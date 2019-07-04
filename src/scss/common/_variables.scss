@@ -1,0 +1,17 @@
+// variables scss变量文件
+
+// 屏幕相关参数
+$screen-phone: 576px;
+
+$screen-pad: 768px;
+$screen-pad-min: $screen-phone + 1;
+$screen-pad-max: $screen-pad;
+
+$screen-pc: 1024px;
+$screen-pc-min: $screen-pad + 1;
+
+// 项目主色调
+
+$yellow: #fdae45;
+$black: #484e57;
+$blue: #58c1e7;

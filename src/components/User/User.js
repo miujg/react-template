@@ -1,26 +1,39 @@
 /**
- Crate by jgmiu on 19/05/29.
+ Crate by jgmiu on 19/07/04.
+ eg: redux 例子示例
 */
-import {hot} from 'react-hot-loader/root'
-import nbaimg from 'imgs/nba.jpg'
-class User extends Component{
-    constructor(props) {
-        super(props)
-    }
+import './user.scss'
+import {useState, useEffect} from 'react'
+import {connect} from 'react-redux'
+import {CHANGE_NAME} from 'action'
 
-    componentDidMount() {
-    }
+const mapStateToProps = state => ({
+  user: state.userReducer
+})
 
-    render() {
-        return(
-            <div className={'User'}>
-                user.11.1<span className={'icon-quill'}></span>
-                <img src={nbaimg} />
-            </div>
-        )
+const mapDispatchToProps = dispath => {
+  return {
+    changeName: name => {
+      dispath({type: CHANGE_NAME, value: name})
     }
+  }
 }
 
-User.protoTypes = {}
+function User(props){
+  
+  let hanleClickBtn = e => {
+    props.changeName('testxxx')
+  }
+
+  return(
+    <div className={'user'}>
+      <h1>redux state: <span className={'name'}>{props.user.name}</span></h1>
+      <button onClick={hanleClickBtn}>change name</button>
+    </div>
+  )
+}
+
+User.propTypes = {}
 User.defaultProps = {}
-export default hot(User)
+
+export default connect(mapStateToProps, mapDispatchToProps)(User)

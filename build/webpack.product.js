@@ -8,20 +8,23 @@ module.exports = merge(common, {
     module: {
         rules: [
             {
-                // css分离
-                test: /\.scss$/,
-                use: [
-                   {
-                    loader: MiniCssExtractPlugin.loader
-                   },
-                   'css-loader',
-                   {
+                test: /\.(scss|css)$/,
+                use:[
+                    'style-loader', 
+                    'css-loader',
+                    {
                         loader: 'postcss-loader',
                         options: {
                             plugins: [require('autoprefixer')]
                         }
                     },
-                   'sass-loader'
+                    'sass-loader',
+                    {
+                        loader: 'sass-resources-loader',
+                        options: {
+                            resources: path.resolve(__dirname, '../src/scss/style.scss')
+                        }
+                    }
                 ]
               }
         ]

@@ -1,6 +1,5 @@
-import Main from './Main/Main'
-import './index.scss'
+import Routers from './Routers/Routers'
 
 export {
-  Main
+  Routers
 }
