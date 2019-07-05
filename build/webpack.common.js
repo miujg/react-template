@@ -94,7 +94,8 @@ module.exports = {
       Component: ['react', 'Component'],
       Fragment : ['react', 'Fragment'],
       PropTypes: 'prop-types',
-      classnames: 'classnames'
+      classnames: 'classnames',
+      '_': 'lodash'
     })
   ]
 }

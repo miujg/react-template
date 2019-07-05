@@ -22,6 +22,7 @@ const mapDispatchToProps = dispath => {
 function User(props){
   
   let hanleClickBtn = e => {
+    console.log(_.drop([1,2,3]))
     props.changeName('testxxx')
   }
 
