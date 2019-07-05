@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config ./build/webpack.product.js",
-    "dev": "webpack-dev-server --open --config ./build/webpack.dev.js"
+    "dev": "webpack-dev-server --config ./build/webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -45,6 +45,10 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-redux": "^7.1.1",
+    "@types/react-router-dom": "^4.3.4",
+    "@types/redux": "^3.6.0",
     "antd": "^3.19.3",
     "axios": "^0.19.0",
     "better-scroll": "^1.15.2",
@@ -61,6 +65,8 @@
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.2"
   }
 }

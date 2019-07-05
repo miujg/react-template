@@ -1,10 +1,23 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./dist",
+    "sourceMap": true,
     "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
+    "module": "ESNext",
+    "target": "es6",
     "jsx": "react",
-    "allowJs": true
-  }
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "src/*": ["src/*"],
+      "coms/*": ["src/components/*"],
+      "cons/*": ["src/containers/*"],
+      "action/*": ["src/redux/action"]
+    },
+    "moduleResolution": "node"
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": ["node_modules", "dist"]
 }

@@ -1,6 +1,8 @@
 import {CHANGE_NAME} from '../action/index'
 
-const userReducer = (state = {name: 'jgmiu'}, action) => {
+
+
+const userReducer = (state = {name: 'jgmiu'}, action:{type:string,value:any}) => {
     switch(action.type) {
         case CHANGE_NAME: 
             return {...state, name: action.value}
@@ -8,5 +10,4 @@ const userReducer = (state = {name: 'jgmiu'}, action) => {
             return state
     }
 }
-
 export default userReducer

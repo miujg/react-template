@@ -5,11 +5,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
 const webpack = require('webpack')
 
+const babelLoader = {
+  loader: 'babel-loader',
+  options: {
+    // 开启 babel缓存
+    cacheDirectory: true
+  }
+}
+
 module.exports = {
   entry: [
-    // 配置react局部刷新
-    'react-hot-loader/patch',
-    path.resolve(__dirname, '../src/app.js')
+    path.resolve(__dirname, '../src/app.tsx')
   ],
   output: {
     filename: 'bundle.js',
@@ -26,15 +32,7 @@ module.exports = {
         exclude: [
           path.resolve(__dirname, '../node_modules')
         ],
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              // 开启 babel缓存
-              cacheDirectory: true
-            }
-          }
-        ]
+        use: [babelLoader]
       },
       // 配置图片/文件loader
       {
@@ -54,6 +52,12 @@ module.exports = {
       {
         test: /\.(eot|svg|ttf|woff)$/,
         use: ['file-loader']
+      },
+      // ts
+      {
+        test: /\.ts(x?)$/,
+        exclude: path.resolve(__dirname, '../node_modules'),
+        use: [babelLoader, 'ts-loader']
       }
     ]
   },
@@ -77,7 +81,7 @@ module.exports = {
       path.resolve(__dirname, '../node_modules')
     ],
     // 后缀名省略
-    extensions: ['.js', '.json', '.*']
+    extensions: [ '.tsx', '.ts', '.js']
   },
 
   plugins: [

@@ -1,32 +1,33 @@
-/**
- Crate by jgmiu on 19/07/04.
- eg: redux 例子示例
-*/
 import './user.scss'
+import React from 'react'
 import {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
-import {CHANGE_NAME} from 'action'
+import {CHANGE_NAME} from 'action/index'
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state:{userReducer:string}) => ({
   user: state.userReducer
 })
 
-const mapDispatchToProps = dispath => {
+const mapDispatchToProps = (dispath:any) => {
   return {
-    changeName: name => {
+    changeName: (name:string) => {
       dispath({type: CHANGE_NAME, value: name})
     }
   }
 }
 
-function User(props){
-  
-  let hanleClickBtn = e => {
-    console.log(_.drop([1,2,3]))
+interface props {
+  changeName: any,
+  user: {name: string}
+}
+
+function User(props:props) {
+
+  let hanleClickBtn = (e:object) => {
     props.changeName('testxxx')
   }
 
-  return(
+  return (
     <div className={'user'}>
       <h1>redux state: <span className={'name'}>{props.user.name}</span></h1>
       <button onClick={hanleClickBtn}>change name</button>
@@ -34,7 +35,5 @@ function User(props){
   )
 }
 
-User.propTypes = {}
-User.defaultProps = {}
 
-export default connect(mapStateToProps, mapDispatchToProps)(User)
+export default connect<any,any>(mapStateToProps, mapDispatchToProps)(User)
