@@ -12,7 +12,8 @@
       "src/*": ["src/*"],
       "coms/*": ["src/components/*"],
       "cons/*": ["src/containers/*"],
-      "action/*": ["src/redux/action"]
+      "action/*": ["src/redux/action"],
+      "store": ["src/store.tsx"]
     },
     "moduleResolution": "node"
   },

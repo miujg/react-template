@@ -1,5 +1,7 @@
-import User from './User/User'
+import Header from './Header/Header'
+import Bottom from './Bottom/Bottom'
 
 export {
-    User
+    Header,
+    Bottom
 }
