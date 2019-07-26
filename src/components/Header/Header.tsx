@@ -1,4 +1,3 @@
-import './header.scss'
 import React from 'react'
 import {useMappedState, IState} from 'store'
 

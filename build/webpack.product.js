@@ -5,12 +5,13 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const common = require('./webpack.common')
 
 module.exports = merge(common, {
+    mode: 'production',
     module: {
         rules: [
             {
                 test: /\.(scss|css)$/,
                 use:[
-                    'style-loader', 
+                    MiniCssExtractPlugin.loader, 
                     'css-loader',
                     {
                         loader: 'postcss-loader',
