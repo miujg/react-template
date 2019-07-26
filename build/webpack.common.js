@@ -73,9 +73,9 @@ module.exports = {
       action: path.resolve(__dirname, '../src/redux/action'),
       reducer: path.resolve(__dirname, '../src/redux/reducer'),
       scss: path.resolve(__dirname, '../src/scss'),
-      config: path.resolve(__dirname, '../config/config.js'),
-      tooles: path.resolve(__dirname, '../src/tooles'),
-      store: path.resolve(__dirname, '../src/store.tsx')
+      config: path.resolve(__dirname, '../config'),
+      store: path.resolve(__dirname, '../src/store.tsx'),
+      src: path.resolve(__dirname, '../src')
     },
     // 配置第三方包的位置
     modules: [

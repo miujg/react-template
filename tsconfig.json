@@ -13,7 +13,8 @@
       "coms/*": ["src/components/*"],
       "cons/*": ["src/containers/*"],
       "action/*": ["src/redux/action"],
-      "store": ["src/store.tsx"]
+      "store": ["src/store.tsx"],
+      "config": ["../config/*"]
     },
     "moduleResolution": "node"
   },
